@@ -214,7 +214,7 @@ svg.append("defs")
     .attr("height", height); 
 
 //end slider part----------------------------------------------------------------------------------- 
-seasonfile = "data2014-15.csv";
+seasonfile = "season2014-15.csv";
 d3.csv(seasonfile, function(error, data) { 
   color.domain(d3.keys(data[0]).filter(function(key) { 
   // Set the domain of the color ordinal scale to be all the csv headers except "date", matching a color to an clubnames

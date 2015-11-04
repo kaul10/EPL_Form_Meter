@@ -236,14 +236,15 @@ var categories = color.domain().map(function(name) {
           rating: +(d[name]),
           };
       }),
-      visible: (name === "Unemployment" ? true : false) // "visible": all false except for economy which is true.
+      visible: ((name === "Stoke City" || name ==="Chelsea" || name ==="Everton" || name ==="Liverpool" || name ==="Arsenal") ? true : false) // "visible": all false except for economy which is true.
+      //visible: (name === ("Chelsea") ? true : false)
     };
   });
 
   xScale.domain(d3.extent(data, function(d) { return d.date;
    })); // extent = highest and lowest points, domain is data, range is bouding box
 
-  yScale.domain([0, 100
+  yScale.domain([0, 20
     //d3.max(categories, function(c) { return d3.max(c.values, function(v) { return v.rating; }); })
   ]);
 
@@ -748,13 +749,13 @@ d3.csv(dataset, function(error, data) {
           rating: +(d[name]),
           };
       }),
-      visible: (name === "Unemployment" ? true : false) // "visible": all false except for economy which is true.
+      visible: ((name === "Stoke City" || name ==="Chelsea" || name ==="Everton" || name ==="Liverpool" || name ==="Arsenal") ? true : false) // "visible": all false except for economy which is true.
     };
   });
 
   xScale.domain(d3.extent(data, function(d) { return d.date; })); // extent = highest and lowest points, domain is data, range is bouding box
 
-  yScale.domain([0, 100
+  yScale.domain([0, 20
     //d3.max(categories, function(c) { return d3.max(c.values, function(v) { return v.rating; }); })
   ]);
 

@@ -214,7 +214,7 @@ svg.append("defs")
     .attr("height", height); 
 
 //end slider part----------------------------------------------------------------------------------- 
-seasonfile = "season2014-15.csv";
+seasonfile = "data2014-15.csv";
 d3.csv(seasonfile, function(error, data) { 
   color.domain(d3.keys(data[0]).filter(function(key) { 
   // Set the domain of the color ordinal scale to be all the csv headers except "date", matching a color to an clubnames
@@ -236,14 +236,15 @@ var categories = color.domain().map(function(name) {
           rating: +(d[name]),
           };
       }),
-      visible: (name === "Unemployment" ? true : false) // "visible": all false except for economy which is true.
+      visible: ((name === "Stoke City" || name ==="Chelsea" || name ==="Everton" || name ==="Liverpool" || name ==="Arsenal") ? true : false) // "visible": all false except for economy which is true.
+      //visible: (name === ("Chelsea") ? true : false)
     };
   });
 
   xScale.domain(d3.extent(data, function(d) { return d.date;
    })); // extent = highest and lowest points, domain is data, range is bouding box
 
-  yScale.domain([0, 100
+  yScale.domain([0, 20
     //d3.max(categories, function(c) { return d3.max(c.values, function(v) { return v.rating; }); })
   ]);
 
@@ -748,13 +749,13 @@ d3.csv(dataset, function(error, data) {
           rating: +(d[name]),
           };
       }),
-      visible: (name === "Unemployment" ? true : false) // "visible": all false except for economy which is true.
+      visible: ((name === "Stoke City" || name ==="Chelsea" || name ==="Everton" || name ==="Liverpool" || name ==="Arsenal") ? true : false) // "visible": all false except for economy which is true.
     };
   });
 
   xScale.domain(d3.extent(data, function(d) { return d.date; })); // extent = highest and lowest points, domain is data, range is bouding box
 
-  yScale.domain([0, 100
+  yScale.domain([0, 20
     //d3.max(categories, function(c) { return d3.max(c.values, function(v) { return v.rating; }); })
   ]);
 
